@@ -1,9 +1,9 @@
 ### Pertemuan 1
-#Introduction
+# Introduction
 
 ## Persiapan Perang
 ### Git
-1. Buatlah akun di github.com.
+1. Buatlah akun di [https://github.com](https://github.com)
 2. Download tool git di [https://git-scm.com/downloads](https://git-scm.com/downloads). Sesuaikan dengan sistem operasi yang Anda digunakan.
 ### IDE
 1. Install tool git ke dalam perangkat komputer Anda masing-masing.
