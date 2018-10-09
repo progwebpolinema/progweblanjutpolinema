@@ -1,4 +1,4 @@
 # Summary
 
-* [Pertemuan 1](./Week 1/README.md)
-
+* [Perkenalan](README.md)
+* [Basic Selector](01-basic-selector.md)
