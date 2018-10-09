@@ -358,11 +358,11 @@ Lihat apa yang terjadi pada aplikasi Angular!
 
 ### TUGAS
 1. Buat sebuah component dengan nama **tugas**
-2. Tampilkan component tugas pada template app (silahkan ```app-servers```
+2. Tampilkan component tugas pada template app (silahkan `app-servers`
    dijakdikan komenter)
-3. Buatlah sebuah inputan untuk ```username``` dengan menggunakan two-way
+3. Buatlah sebuah inputan untuk `username` dengan menggunakan two-way
    binding (15 poin)
-4. Tampilkan ```username``` yang diketikkan oleh user pada element ```<p>```
+4. Tampilkan `username` yang diketikkan oleh user pada element `<p>`
    dengan menggunakan string interpolation (15 poin)
 5. Buatlah sebuah tombol yang HANYA BISA DI TEKAN ATAU KLIK KETIKA INPUT TIDAK
    KOSONG (40 poin)
