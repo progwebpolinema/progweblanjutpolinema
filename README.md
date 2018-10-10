@@ -46,3 +46,4 @@ Code dibawah ini :
 2. Enroll kelas Introdution to Javascript -
    [https://www.codecademy.com/learn/introduction-to-javascript](https://www.codecademy.com/learn/introduction-to-javascript)
 3. Minggu depan course Introduction to Javascript harus sudah selesai!
+4. Memahami Type Script Course Untuk Typescript dapat dipelajari disini [https://medium.freecodecamp.org/want-to-learn-typescript-heres-our-free-22-part-course-21cd9bbb5ef5] atau disini [https://hackr.io/tutorials/learn-typescript]
