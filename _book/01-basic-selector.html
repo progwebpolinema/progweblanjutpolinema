@@ -1,0 +1,382 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Basic Selector · Pemrograman Web Lanjut</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="02-data-binding.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Perkenalan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="01-basic-selector.html">
+            
+                <a href="01-basic-selector.html">
+            
+                    
+                    Basic Selector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="02-data-binding.html">
+            
+                <a href="02-data-binding.html">
+            
+                    
+                    Data Binding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Basic Selector</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="basic-selector">Basic Selector</h1>
+<p>Pada modul pertama, kita sudah belajar bahwa Angular menggunakan selector
+sebagai penanda component. Kita telah mengenal selector dengan menggunakan tag
+element. Akan tetapi ada tipe selector lain yang bisa gunakan. Angular dapat
+menggunakan 3 tipe selector, yaitu,</p>
+<ol>
+<li>Tag element selector</li>
+<li>Property selector</li>
+<li><p>Class selector</p>
+<blockquote>
+<p>Angular tidak mendukung tipe selector dengan menggunakan ID.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="tag-element-selector">Tag Element Selector</h3>
+<p>Perhatikan kode <code>server.component.ts</code> dibawah ini,</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } from <span class="hljs-string">&apos;@angular/core&apos;</span>;
+
+@Component({
+    selector: <span class="hljs-string">&apos;app-server&apos;</span>, <span class="hljs-comment">/* ini adalah selector tag */</span>
+    templateUrl: <span class="hljs-string">&apos;./server.component.html&apos;</span>,
+    styleUrls: [<span class="hljs-string">&apos;./server.component.css&apos;</span>]
+})
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ServerComponent {
+    serverName = <span class="hljs-string">&apos;server&apos;</span>;
+    serverStatus = <span class="hljs-string">&apos;offline&apos;</span>;
+}
+</code></pre>
+<p>Baris ke-4 merupakan contoh penggunaan selector tag element pada kode TS. Untuk
+menggunakan selector pada template, maka element <code>&lt;app-server&gt;&lt;/app-server&gt;</code>
+digunakan dalam template. Contohnya ada pada kode <code>app.component.html</code> baris
+ke-6 dibawah ini,</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-md-12&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> {{ title }} <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">app-server</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-server</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3 id="property-selector">Property Selector</h3>
+<p>Seperti namanya, property binding akan memanfaatkan property atau atribut dari
+tag HTML sebagai selector. Tag HTML yang digunakan adalah tag HTML biasa (buka
+special tag dari angular), namun ditambakan dengan selector property binding.
+Perhatikan kode <code>server.component.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } from <span class="hljs-string">&apos;@angular/core&apos;</span>;
+
+@Component({
+    <span class="hljs-comment">// selector: &apos;app-server&apos;,</span>
+    selector: <span class="hljs-string">&apos;[app-server]&apos;</span>, <span class="hljs-comment">// property selector</span>
+    templateUrl: <span class="hljs-string">&apos;./server.component.html&apos;</span>,
+    styleUrls: [<span class="hljs-string">&apos;./server.component.css&apos;</span>]
+})
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ServerComponent {
+    serverName = <span class="hljs-string">&apos;server&apos;</span>;
+    serverStatus = <span class="hljs-string">&apos;offline&apos;</span>;
+}
+</code></pre>
+<p>Kemudian untuk menggunakan property selector, perhatikan kode
+<code>app.component.html</code> baris ke-7</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-md-12&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> {{ title }} <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+      <span class="hljs-comment">&lt;!-- &lt;app-server&gt;&lt;/app-server&gt; --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">app-server</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>Pada <code>&lt;div&gt;</code> ditambahkan property <code>&lt;div app-server&gt;</code> sehingga selector dapat
+dikenali oleh angular.</p>
+<h3 id="class-selector">Class Selector</h3>
+<p>Terakhir kita dapat menggunakan class sebagai selector pada angular. Value dari
+selector inilah yang akan menjadi pengenal bagi angular. Perhatikan kode
+<code>server.component.ts</code></p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } from <span class="hljs-string">&apos;@angular/core&apos;</span>;
+
+@Component({
+    <span class="hljs-comment">// selector: &apos;app-server&apos;,</span>
+    <span class="hljs-comment">// selector: &apos;[app-server]&apos;, // property selector</span>
+    selector: <span class="hljs-string">&apos;.app-server&apos;</span>, <span class="hljs-comment">// class selector</span>
+    templateUrl: <span class="hljs-string">&apos;./server.component.html&apos;</span>,
+    styleUrls: [<span class="hljs-string">&apos;./server.component.css&apos;</span>]
+})
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ServerComponent {
+    serverName = <span class="hljs-string">&apos;server&apos;</span>;
+    serverStatus = <span class="hljs-string">&apos;offline&apos;</span>;
+}
+</code></pre>
+<p>Kemudian pada <code>app.component.html</code> berikan value <code>app-server</code> pada property
+class.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-md-12&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> {{ title }} <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+      <span class="hljs-comment">&lt;!-- &lt;app-server&gt;&lt;/app-server&gt; --&gt;</span>
+      <span class="hljs-comment">&lt;!-- &lt;div app-server&gt;&lt;/div&gt; --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;app-server&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h2 id="tugas">TUGAS</h2>
+<ol>
+<li>Ubah variabel <code>serverName</code> pada <code>server.component.ts</code> menjadi <code>serverID</code>
+dengan tipe data <strong>number</strong> (20 poin)</li>
+<li>Modifikasi template component server sehingga menampilkan <code>Server with ID
+ is</code> (20 poin)</li>
+<li>Buatlah component baru dengan menggunakan Angular CLI dengan nama <strong>servers</strong>
+(20 poin)</li>
+<li>Tampilkan 2 component <strong>server</strong> didalam component <strong>servers</strong> menggunakan
+<strong>tag element selector</strong> (20 poin)</li>
+<li>Pada <code>app.component.html</code> tampilkan selector dari component <strong>servers</strong>
+(hint: sebelumnya adalah selector dari server) (20 poin)</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Perkenalan">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="02-data-binding.html" class="navigation navigation-next " aria-label="Next page: Data Binding">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Basic Selector","level":"1.2","depth":1,"next":{"title":"Data Binding","level":"1.3","depth":1,"path":"02-data-binding.md","ref":"02-data-binding.md","articles":[]},"previous":{"title":"Perkenalan","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Pemrograman Web Lanjut","gitbook":"*"},"file":{"path":"01-basic-selector.md","mtime":"2018-10-10T04:17:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-10T04:19:54.505Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
