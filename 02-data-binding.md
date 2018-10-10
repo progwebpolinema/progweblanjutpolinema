@@ -5,6 +5,7 @@ pada file TS dengan Template HTML. Gunakan starter-kit pada direktori Week3
 untuk mempelajari modul ini.
 
 Angular mengenal 4 jenis data binding, yaitu
+
 1. String interpolation
 2. Property binding
 3. Event binding
@@ -41,23 +42,22 @@ memberikan nilai kembalian (return value). Perhatikan kode `server.component.ts`
 dibawah ini
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-    selector: 'app-server',
-    // selector: '[app-server]', // property selector
-    // selector: '.app-server', // class selector
-    templateUrl: './server.component.html',
-    styleUrls: ['./server.component.css']
+  selector: "app-server",
+  // selector: '[app-server]', // property selector
+  // selector: '.app-server', // class selector
+  templateUrl: "./server.component.html",
+  styleUrls: ["./server.component.css"]
 })
-
 export class ServerComponent {
-    serverID = 10;
-    serverStatus = 'offline';
+  serverID = 10;
+  serverStatus = "offline";
 
-    getServerStatus() {
-        return this.serverStatus;
-    }
+  getServerStatus() {
+    return this.serverStatus;
+  }
 }
 ```
 
@@ -87,26 +87,24 @@ sehingga user dapat melakukan aksi klik pada button. Perhatikan file TS
 `servers.component.ts`
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-servers',
-  templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
+  selector: "app-servers",
+  templateUrl: "./servers.component.html",
+  styleUrls: ["./servers.component.css"]
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
 
   constructor() {
     // () => {} adalah arrow function atau lamda --> fitur ES6 javascript
-    setTimeout(()=> {
+    setTimeout(() => {
       this.allowNewServer = true;
-    }, 2000)
+    }, 2000);
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
 ```
 
@@ -138,33 +136,32 @@ binding** untuk melakukan hal tersebut. Lakukan modifikasi pada file TS
 component servers sehingga menjadi seperti dibawah ini,
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-servers',
-  templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
+  selector: "app-servers",
+  templateUrl: "./servers.component.html",
+  styleUrls: ["./servers.component.css"]
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
-  serverCreationStatus = 'Tidak ada server baru yang telah dibuat!';
+  serverCreationStatus = "Tidak ada server baru yang telah dibuat!";
 
   constructor() {
     // () => {} adalah arrow function atau lamda --> fitur ES6 javascript
-    setTimeout(()=> {
+    setTimeout(() => {
       this.allowNewServer = true;
-    }, 2000)
+    }, 2000);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onCreationStatus() {
-    this.serverCreationStatus = 'Server telah dibuat!';
+    this.serverCreationStatus = "Server telah dibuat!";
   }
-
 }
 ```
+
 Kemudian ubah template component servers menjadi,
 
 ```html
@@ -205,6 +202,7 @@ menjadi,
 <app-server></app-server>
 <app-server></app-server>
 ```
+
 Perhatikan kode baris ke-5. Event binding input akan menjalankan fungsi
 **onUpdateServerName()** dengan input paramater **$event**. Parameter $event
 digunakan untuk menangkap event yang terjadi. Event tersebut akan kita tangkap
@@ -215,36 +213,34 @@ dari input text. Langkah selajutnya adalah, membuat fungsi
 berikut,
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-servers',
-  templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
+  selector: "app-servers",
+  templateUrl: "./servers.component.html",
+  styleUrls: ["./servers.component.css"]
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
-  serverCreationStatus = 'Tidak ada server baru yang telah dibuat!';
-  serverName = '';
+  serverCreationStatus = "Tidak ada server baru yang telah dibuat!";
+  serverName = "";
 
   constructor() {
     // () => {} adalah arrow function atau lamda --> fitur ES6 javascript
-    setTimeout(()=> {
+    setTimeout(() => {
       this.allowNewServer = true;
-    }, 2000)
+    }, 2000);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onCreationStatus() {
-    this.serverCreationStatus = 'Server telah dibuat!';
+    this.serverCreationStatus = "Server telah dibuat!";
   }
 
   onUpdateServerName(event: Event) {
     this.serverName = (<HTMLInputElement>event.target).value;
   }
-
 }
 ```
 
@@ -261,28 +257,21 @@ aplikasi Angular kita, terlebih dahulu kita harus mengimport modul tersebut.
 Ubah file `app.module.ts` menjadi,
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { AppComponent } from './app.component';
-import { ServerComponent } from '../app/server/server.component';
-import { ServersComponent } from './servers/servers.component';
+import { AppComponent } from "./app.component";
+import { ServerComponent } from "../app/server/server.component";
+import { ServersComponent } from "./servers/servers.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ServerComponent,
-    ServersComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
+  declarations: [AppComponent, ServerComponent, ServersComponent],
+  imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 Perhatikan baris ke-3 dan ke-17. Baris ke-3 digunakan untuk melakukan import
@@ -321,42 +310,45 @@ bagian selanjutnya. Kemudian pada file TS component servers, berika value pada
 variabel `serverName` sehingga menjadi,
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-servers',
-  templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
+  selector: "app-servers",
+  templateUrl: "./servers.component.html",
+  styleUrls: ["./servers.component.css"]
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
-  serverCreationStatus = 'Tidak ada server baru yang telah dibuat!';
-  serverName = 'TestServer';
+  serverCreationStatus = "Tidak ada server baru yang telah dibuat!";
+  serverName = "TestServer";
 
   constructor() {
     // () => {} adalah arrow function atau lamda --> fitur ES6 javascript
-    setTimeout(()=> {
+    setTimeout(() => {
       this.allowNewServer = true;
-    }, 2000)
+    }, 2000);
+    // equal to
+    // setTimeout(function(){
+    //   this.allowNewServer = true;
+    // }, 2000)
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onCreationStatus() {
-    this.serverCreationStatus = 'Server telah dibuat!';
+    this.serverCreationStatus = "Server telah dibuat!";
   }
 
   onUpdateServerName(event: Event) {
     this.serverName = (<HTMLInputElement>event.target).value;
   }
-
 }
 ```
 
 Lihat apa yang terjadi pada aplikasi Angular!
 
 ### TUGAS
+
 1. Buat sebuah component dengan nama **tugas**
 2. Tampilkan component tugas pada template app (silahkan `app-servers`
    dijakdikan komenter)
@@ -368,4 +360,3 @@ Lihat apa yang terjadi pada aplikasi Angular!
    KOSONG (40 poin)
 6. Ketika tombol pada point 5 ditekan, maka input text akan di reset ulang
    kedalam keadaan kosong (30 poin)
-
