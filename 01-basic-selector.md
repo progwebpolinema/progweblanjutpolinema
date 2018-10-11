@@ -9,23 +9,23 @@ menggunakan 3 tipe selector, yaitu,
 2. Property selector
 3. Class selector
 
- > Angular tidak mendukung tipe selector dengan menggunakan ID.
+> Angular tidak mendukung tipe selector dengan menggunakan ID.
 
 ### Tag Element Selector
+
 Perhatikan kode `server.component.ts` dibawah ini,
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-    selector: 'app-server', /* ini adalah selector tag */
-    templateUrl: './server.component.html',
-    styleUrls: ['./server.component.css']
+  selector: "app-server" /* ini adalah selector tag */,
+  templateUrl: "./server.component.html" /* path menuju template html*/,
+  styleUrls: ["./server.component.css"] /*path menuju file style*/
 })
-
 export class ServerComponent {
-    serverName = 'server';
-    serverStatus = 'offline';
+  serverName = "server";
+  serverStatus = "offline";
 }
 ```
 
@@ -51,21 +51,20 @@ ke-6 dibawah ini,
 Seperti namanya, property binding akan memanfaatkan property atau atribut dari
 tag HTML sebagai selector. Tag HTML yang digunakan adalah tag HTML biasa (buka
 special tag dari angular), namun ditambakan dengan selector property binding.
-Perhatikan kode ```server.component.ts```
+Perhatikan kode `server.component.ts`
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-    // selector: 'app-server',
-    selector: '[app-server]', // property selector
-    templateUrl: './server.component.html',
-    styleUrls: ['./server.component.css']
+  // selector: 'app-server',
+  selector: "[app-server]", // property selector
+  templateUrl: "./server.component.html",
+  styleUrls: ["./server.component.css"]
 })
-
 export class ServerComponent {
-    serverName = 'server';
-    serverStatus = 'offline';
+  serverName = "server";
+  serverStatus = "offline";
 }
 ```
 
@@ -95,19 +94,18 @@ selector inilah yang akan menjadi pengenal bagi angular. Perhatikan kode
 `server.component.ts`
 
 ```typescript
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-    // selector: 'app-server',
-    // selector: '[app-server]', // property selector
-    selector: '.app-server', // class selector
-    templateUrl: './server.component.html',
-    styleUrls: ['./server.component.css']
+  // selector: 'app-server',
+  // selector: '[app-server]', // property selector
+  selector: ".app-server", // class selector
+  templateUrl: "./server.component.html",
+  styleUrls: ["./server.component.css"]
 })
-
 export class ServerComponent {
-    serverName = 'server';
-    serverStatus = 'offline';
+  serverName = "server";
+  serverStatus = "offline";
 }
 ```
 
@@ -132,8 +130,7 @@ class.
 
 1. Ubah variabel `serverName` pada `server.component.ts` menjadi `serverID`
    dengan tipe data **number** (20 poin)
-2. Modifikasi template component server sehingga menampilkan `Server with ID
-   {{ serverID }} is {{ serverStatus }}` (20 poin)
+2. Modifikasi template component server sehingga menampilkan `Server with ID {{ serverID }} is {{ serverStatus }}` (20 poin)
 3. Buatlah component baru dengan menggunakan Angular CLI dengan nama **servers**
    (20 poin)
 4. Tampilkan 2 component **server** didalam component **servers** menggunakan
